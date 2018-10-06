@@ -20,6 +20,7 @@
     ``` 
 2. 安装相关依赖(详见`jwxt.py`)
 ```
+pip install requests
 pip install bs4
 pip install icalendar
 pip install pyjsbn-rsa
