@@ -40,7 +40,7 @@ pip install pyjsbn-rsa
 
 ### 手机视图
 
-> Android Google Calendar 可以直接导入，若手机日历不支持直接导入(如小米)，可以采用邮件订阅Google日历, 也可下载手机qq邮箱导入
+> Android Google Calendar 可以直接导入，若手机日历不支持直接导入(如小米)，可以采用邮件订阅Google日历, 也可下载手机qq邮箱导入
 
 ![周视图](/result/Week_view.png)
 
