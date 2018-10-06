@@ -19,6 +19,11 @@
     cd class2ics
     ``` 
 2. 安装相关依赖(详见`jwxt.py`)
+```
+pip install bs4
+pip install icalendar
+pip install pyjsbn-rsa
+```
 3. 按提示运行
 
 ![流程](/result/Process.png)
@@ -34,9 +39,9 @@
 
 ### 手机视图
 
-> Android Google Calendar 可以直接导入，若手机日历不支持直接导入(如小米)，可以采用邮件订阅Google日历
+> Android Google Calendar 可以直接导入，若手机日历不支持直接导入(如小米)，可以采用邮件订阅Google日历, 也可下载手机qq邮箱导入
 
 ![周视图](/result/Week_view.png)
 
-![手机桌面视图](/result/Desktop_view.png)
+![手机桌面视图](/result/Desktop_view.jpg)
 ![具体视图](/result/Concrete_view.jpg)
