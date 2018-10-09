@@ -26,14 +26,25 @@ class JWXT:
     def __init__(self,username,password):
         self.username = username
         self.password = password
-    
+        self.getCsrfToken()
+        self.getRSApublickey()
+        self.login()
+        self.getYearTerm()
+        self.getNormalClassTable()
+        self.getSysClassTable()
+        self.cal = self.lessonToCal().to_ical()
+        self.generateIcs()  
+
     def getCsrfToken(self):
         """
         Get the csrftoken through the BeautifulSoup library.
         """
         url = self.baseUrl + '/jwglxt/xtgl/login_slogin.html?language=zh_CN&_t=' +self.time
-        response = self.sessions.get(url,headers=self.headers)
-
+        try:
+            response = self.sessions.get(url,headers=self.headers)
+        except:
+            print('请检查网络连接..')
+            exit()
         soup = BeautifulSoup(response.text, 'html.parser')
         self.csrftoken = soup.find(id="csrftoken")['value']
 
@@ -160,6 +171,9 @@ class JWXT:
             c.add_component(e)
 
         return c
+    def generateIcs(self):
+        with open(self.lessons['xsxx']['XM']+self.fullTerm+".ics", 'wb') as my_file:
+            my_file.write(self.cal)
 
 def getClassTime(ymd,b2e):
     """
