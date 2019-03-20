@@ -159,16 +159,18 @@ class JWXT:
                 c.add_component(e)
 
         for k in self.syLessons['items']:
-            time = getClassTime(firstWeek+datetime.timedelta(days=(int(k['xqj'])-1+(int(k['zcd'][:-1])-1)*7)),k['jcs'])
-            
-            e = Event()
-            e.add('summary', k['kcmc']+' '+k['xmmc'])
-            e.add('location', k['syfj'])
-            e.add('dtstart', time[0])
-            e.add('dtend', time[1])
-            e.add('description',"周数: "+k['zcd']+"\n"+"节数: "+k['xqjmc']+" "+k["jc"]+"\n"+"老师: "+k['jsxm']+"\n"+"地点: "+k['syfj'])
-            
-            c.add_component(e)
+            weeks = getClassWeek(k['zcd'])
+            for kk in weeks:
+                time = getClassTime(firstWeek+datetime.timedelta(days=(int(k['xqj'])-1+(kk-1)*7)),k['jcs'])
+                
+                e = Event()
+                e.add('summary', k['kcmc']+' '+k['xmmc'])
+                e.add('location', k['syfj'])
+                e.add('dtstart', time[0])
+                e.add('dtend', time[1])
+                e.add('description',"周数: "+k['zcd']+"\n"+"节数: "+k['xqjmc']+" "+k["jc"]+"\n"+"老师: "+k['jsxm']+"\n"+"地点: "+k['syfj'])
+                
+                c.add_component(e)
 
         return c
     def generateIcs(self):
@@ -203,7 +205,16 @@ def getClassWeek(zcd):
     """
     Get class week. 
     """
-    b2e = zcd[:-1]
-    res = b2e.split('-')
-    return [i for i in range(int(res[0]),int(res[1]) + 1)]
-
+    # if(zcd == "1-2周,4-8周"):
+    #     interval = zcd.split(",")
+    zcd = zcd.replace("(双)","")
+    zcd = zcd.replace("(单)","")
+    interval = zcd.split(",")
+    weeks = []
+    for week in interval:
+        real = week[:-1].split('-')
+        if len(real) == 1:
+            weeks += [int(real[0])]
+        else:
+            weeks += [i for i in range(int(real[0]),int(real[1]) + 1)]
+    return weeks
