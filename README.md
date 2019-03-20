@@ -17,17 +17,26 @@
     ```
     git clone https://github.com/imyhui/class2ics.git
     cd class2ics
-    ``` 
-2. 安装相关依赖(详见`jwxt.py`)
-```
-pip install requests
-pip install bs4
-pip install icalendar
-pip install pyjsbn-rsa
-```
-3. 按提示运行
+    ```
+2. 安装相关依赖(详见[`Pipfile`](./Pipfile))
+- 方式一 pipenv (**推荐**)
+    ``` shell
+    $ pipenv install
+    $ pipenv shell
+    ```
+- 方式二 直接安装
+    ``` shell
+    $ pip install -r requirements.txt
+    ```
+3. 运行并按提示输入
 
-![流程](/result/Process.png)
+   ```shell
+   $ python main.py
+   ```
+
+   
+
+![流程](result/Process.png)
 
 ## 成品展示
 
@@ -36,13 +45,14 @@ pip install pyjsbn-rsa
 ### mac 日历视图
 > mac直接双击.ics文件即可导入到日历
 
-![PC视图](/result/PC_view.png)
+![PC视图](result/PC_view.png)
 
 ### 手机视图
 
 > Android Google Calendar 可以直接导入，若手机日历不支持直接导入(如小米)，可以采用邮件订阅Google日历, 也可下载手机qq邮箱导入
 
-![周视图](/result/Week_view.png)
-
-![手机桌面视图](/result/Desktop_view.jpg)
-![具体视图](/result/Concrete_view.jpg)
+<div align="center">
+<img src="result/Week_view.png" width="200"/>
+<img src="result/Desktop_view.jpg" width="200"/>
+<img src="result/Concrete_view.jpg" width="200"/>
+</div><br>
