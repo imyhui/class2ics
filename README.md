@@ -33,10 +33,9 @@
    ```shell
    $ python main.py
    ```
+    ![流程](result/Process.png)
 
-   
 
-![流程](result/Process.png)
 
 ## 成品展示
 
@@ -44,8 +43,10 @@
 
 ### mac 日历视图
 > mac直接双击.ics文件即可导入到日历
+<div align="center">
+<img src="result/PC_view.png" width="700"/>
+</div><br>
 
-![PC视图](result/PC_view.png)
 
 ### 手机视图
 
