@@ -205,16 +205,17 @@ def getClassWeek(zcd):
     """
     Get class week. 
     """
-    # if(zcd == "1-2周,4-8周"):
-    #     interval = zcd.split(",")
-    zcd = zcd.replace("(双)","")
-    zcd = zcd.replace("(单)","")
     interval = zcd.split(",")
     weeks = []
     for week in interval:
+        leap = 1
+        if ("(双)" or "(单)") in week:
+            week = week.replace("(双)","")
+            week = week.replace("(单)","")
+            leap = 2
         real = week[:-1].split('-')
         if len(real) == 1:
             weeks += [int(real[0])]
         else:
-            weeks += [i for i in range(int(real[0]),int(real[1]) + 1)]
+            weeks += [i for i in range(int(real[0]),int(real[1]) + 1, leap)]
     return weeks
