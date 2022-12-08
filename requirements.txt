@@ -1,7 +1,7 @@
 -i https://pypi.org/simple/
 beautifulsoup4==4.7.1
 bs4==0.0.1
-certifi==2019.3.9
+certifi==2022.12.7
 chardet==3.0.4
 icalendar==4.0.3
 idna==2.8
